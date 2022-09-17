@@ -1,0 +1,31 @@
+{
+  "name": "fragments-ui",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Fragments UI testing web app",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MizuhoOkimoto/fragments-ui.git"
+  },
+  "keywords": [],
+  "author": "Mizuho Okimoto <mokimoto@myseneca.ca>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MizuhoOkimoto/fragments-ui/issues"
+  },
+  "homepage": "https://github.com/MizuhoOkimoto/fragments-ui#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1"
+  },
+  "dependencies": {
+    "aws-amplify": "^4.3.35"
+  }
+}

@@ -1,3 +1,4 @@
+#Confirmed .env, cache, and dist are included
 # Logs
 logs
 *.log
