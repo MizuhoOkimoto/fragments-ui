@@ -103,3 +103,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# parcel - The .parcel-cache dir is full of generated, build artifacts, which don't belong in git.
+.parcel-cache
