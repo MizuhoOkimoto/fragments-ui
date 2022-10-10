@@ -22,3 +22,52 @@ export async function getUserFragments(user) {
     console.error('Unable to call GET /v1/fragment', { err });
   }
 }
+
+export async function postUserFragments(user, document) {
+  //console.log('Posting fragments data...');
+  if (!document.querySelector('#fragment').value.length) {
+    document = JSON.stringify(document); //converts value to a JSON string
+    console.log(document);
+  }
+  try {
+    const res = await fetch(`${apiUrl}/v1/fragments`, {
+      // https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch
+      // Generate headers with the proper Authorization bearer token to pass
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${user.idToken}`,
+        'Content-Type': 'text/plain',
+      },
+      body: document.querySelector('#fragment').value,
+    });
+    if (!res.ok) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    }
+    const jsonData = await res.json();
+    console.log('Post user fragments data', { jsonData });
+  } catch (err) {
+    console.error('Unable to call POST /v1/fragment', { err });
+  }
+  console.log('Entered Fragment: ' + document.querySelector('#fragment').value);
+  document.querySelector('#fragment').value = '';
+}
+
+export async function displayUserFragment(user, document) {
+  try {
+    const res = await fetch(
+      `${apiUrl}/v1/fragments/${document.querySelector('#fragmentId').value}`,
+      {
+        headers: {
+          Authorization: `Bearer ${user.idToken}`,
+        },
+      }
+    );
+    if (!res.ok) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    }
+    let text = await res.text();
+    console.log('Fragment:', text);
+  } catch (err) {
+    console.error('Unable to get fragments by id', { err });
+  }
+}

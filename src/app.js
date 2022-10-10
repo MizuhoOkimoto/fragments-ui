@@ -1,13 +1,14 @@
 import { Auth, getUser } from './auth';
 
-import { getUserFragments } from './api';
+import { getUserFragments, postUserFragments, displayUserFragment } from './api';
 
 async function init() {
   // Get our UI elements
   const userSection = document.querySelector('#user');
   const loginBtn = document.querySelector('#login');
   const logoutBtn = document.querySelector('#logout');
-  //const user = await getUser();
+  const postFragmentBtn = document.querySelector('#post');
+  const getFragmentBtn = document.querySelector('#get');
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -19,6 +20,16 @@ async function init() {
     // Sign-out of the Amazon Cognito Hosted UI (requires redirects), see:
     // https://docs.amplify.aws/lib/auth/emailpassword/q/platform/js/#sign-out
     Auth.signOut();
+  };
+
+  // Get user fragments
+  postFragmentBtn.onclick = async () => {
+    //console.log('here');
+    await postUserFragments(user, document);
+  };
+
+  getFragmentBtn.onclick = async () => {
+    await displayUserFragment(user, document);
   };
 
   // See if we're signed in (i.e., we'll have a `user` object)
