@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Fragments UI</title>
     <link rel="stylesheet" href="https://unpkg.com/bamboo.css" />
+    <link rel="stylesheet" href="../index.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
@@ -12,13 +13,42 @@
       <nav><button id="login">Login</button> <button id="logout">Logout</button></nav>
     </section>
     <section hidden id="user">
-      <h2>Hello <span class="username"></span>!</h2>
-      <label for="fragment">Enter your text message:</label>
+      <h2 class="name">Hello <span class="username"></span>!</h2>
+      <div class="content">
+      <label for="content" class="content_title">Choose your content type:</label>
+      <select name="content" id="content">
+        <option value="text/plain">Plain text</option>
+        <option value="text/html">HTML</option>
+        <option value="text/markdown">Markdown</option>
+        <option value="application/json">Json</option>
+      </div>
+      </select>
+      <div class="enter_message">
+      <label for="fragment">Enter your message:</label>
       <input type="text" id="fragment" name="fragment" />
+    </div>
+    <div class="enter_message_btn">
       <input id="post" type="button" value="Submit" />
+    </div>
+    <div class="enter_id">
       <label for="fragmentId">Enter your fragment id:</label>
       <input type="text" id="fragmentId" name="fragmentId" />
+    </div>
+    <div class="convert_type">
+      <label for="convert">Choose the convert type:</label>
+      <select name="convert" id="convert">
+        <option value="">None</option>
+        <option value="html">HTML</option>
+      </select>
+    </div>
+    <div class="convert_btn">
       <input id="get" type="button" value="Submit" />
+      <button name="metainfo" id="metainfo">Get Fragment Metadata</button>
+      <button name="expand" id="expand">
+        Expand Fragments
+      </button>
+    </div>
+
     </section>
   </body>
 </html>

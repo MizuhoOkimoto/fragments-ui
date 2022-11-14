@@ -1,0 +1,6 @@
+# Isuue #329 about .env file
+.parcel-cache/
+dist/
+node_modules/
+.gitignore
+.prettier*

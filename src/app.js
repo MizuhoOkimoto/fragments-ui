@@ -1,6 +1,6 @@
 import { Auth, getUser } from './auth';
 
-import { getUserFragments, postUserFragments, displayUserFragment } from './api';
+import { getUserFragments, postUserFragments, displayUserFragment, displayUserFragmentsExpand, displayUserFragmentMetaInfo } from './api';
 
 async function init() {
   // Get our UI elements
@@ -9,6 +9,8 @@ async function init() {
   const logoutBtn = document.querySelector('#logout');
   const postFragmentBtn = document.querySelector('#post');
   const getFragmentBtn = document.querySelector('#get');
+  const getExpandFragmensBtn = document.querySelector('#expand');
+  const getMetaInfoFragmenBtn = document.querySelector('#metainfo');
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -21,13 +23,25 @@ async function init() {
     // https://docs.amplify.aws/lib/auth/emailpassword/q/platform/js/#sign-out
     Auth.signOut();
   };
+  
+    // Get user fragments(Expand)
+    getMetaInfoFragmenBtn.onclick = async () => {
+      console.log('here');
+      await displayUserFragmentMetaInfo(user, document);
+    };
 
-  // Get user fragments
-  postFragmentBtn.onclick = async () => {
-    //console.log('here');
-    await postUserFragments(user, document);
-  };
-
+    //Get Metadata Info
+    getExpandFragmensBtn.onclick = async () => {
+      //console.log('here');
+      await displayUserFragmentsExpand(user, document);
+    };
+  
+    // Get user fragments
+    postFragmentBtn.onclick = async () => {
+      //console.log('here');
+      await postUserFragments(user, document);
+    };
+  
   getFragmentBtn.onclick = async () => {
     await displayUserFragment(user, document);
   };

@@ -1,0 +1,29 @@
+.name {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.content {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.enter_message{
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+.enter_message_btn{
+    margin-bottom: 18px;
+}
+.enter_id {
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+}
+
+.convert_type {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+.convert_btn {
+    margin-bottom: 18px;
+}
