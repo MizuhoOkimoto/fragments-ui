@@ -1,43 +1,15 @@
 .name {
   text-align: center;
   font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
-/* .content {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-.enter_message {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-}
-.enter_message_btn {
-  margin-bottom: 18px;
-}
-.enter_id {
-  margin-bottom: 18px;
-  font-size: 1.5rem;
-}
-
-.convert_type {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-}
-.convert_btn {
-  margin-bottom: 18px;
-}
-
-.upload {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-} */
 
 .title_create {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 .title_manage {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .title_update {
@@ -49,7 +21,7 @@
 }
 
 .create_fragment_section {
-  background-color: blanchedalmond;
+  background-color: rgb(250, 234, 210);
   padding: 20px;
 }
 
@@ -64,11 +36,18 @@ p {
 }
 
 .update_fragment_section {
-  background-color: rgb(221, 255, 205);
+  background-color: rgb(225, 252, 213);
   padding: 20px;
 }
 
 .convert_fragment_section {
-  background-color: rgb(247, 205, 255);
+  background-color: rgb(247, 214, 253);
   padding: 20px;
+}
+
+button {
+  margin-top: 10px;
+}
+.enter_message_btn {
+  margin-top: 10px;
 }

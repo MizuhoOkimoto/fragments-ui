@@ -59,22 +59,26 @@ FROM nginx:1.22.0@sha256:f0d28f2047853cbc10732d6eaa1b57f1f4db9b017679b9fd7966b6a
 
 # Set up node.js
 # https://github.com/nodesource/distributions/blob/master/README.md
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    nodejs\
-    && rm -fr /var/lib/apt/lists/*
-
-# Before npm start, explicit the user(node) instead of root for security
-#USER node
+# RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+#     && apt-get update && apt-get install -y --no-install-recommends \
+#     build-essential \
+#     nodejs\
+#     && rm -fr /var/lib/apt/lists/*
 
 # Copy my source code in
 WORKDIR /usr/local/src/fragments-ui
 COPY --from=build . .
 
+# COPY from build stage to the dir that nginx expects for static sites - A2 FB
+COPY --from=build /app/dist /usr/share/nginx/html
+# COPY --from=build /app/.parcel-cache /usr/share/nginx/html - not this...?
+
+# Before npm start, explicit the user(node) instead of root for security
+#USER node
+
 # Copy the build site to the dir that nginx expects for static sites
 # https://hub.docker.com/_/nginx
-RUN cp -a ./app/. /usr/share/nginx/html/
+# RUN cp -a ./app/. /usr/share/nginx/html/
 
 # Run my service on port 80
 EXPOSE 80

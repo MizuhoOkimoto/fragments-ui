@@ -110,13 +110,10 @@ export async function updateFragment(user, document) {
     return console.log('No fragment entered for updating', document);
   }
   try {
-    console.log('BEFORE UPDATE FETCH');
-    console.log(
-      'THIS IS FRAGMENT ID TO UPDATE: ',
-      document.querySelector('#update_fragmentId').value
-    );
+    //console.log('BEFORE UPDATE FETCH');
+    //console.log('THIS IS FRAGMENT ID TO UPDATE: ', document.querySelector('#update_fragmentId').value);
     const getOwnerId = await getOwnerIdtoUpdate(user, document);
-    console.log('THIS IS OWNER ID: ', getOwnerId);
+    //console.log('THIS IS OWNER ID: ', getOwnerId);
     const res = await fetch(
       `${apiUrl}/v1/fragments/${document.querySelector('#update_fragmentId').value}`,
       {
@@ -132,7 +129,7 @@ export async function updateFragment(user, document) {
         body: JSON.stringify(document.querySelector('#update_fragment').value),
       }
     );
-    console.log('AFTER UPDATE FETCH');
+    //console.log('AFTER UPDATE FETCH');
 
     if (!res.ok) {
       throw new Error(`${res.status} ${res.statusText}`);
@@ -143,7 +140,7 @@ export async function updateFragment(user, document) {
   } catch (err) {
     console.error('Unable to call PUT /v1/fragment' + err);
   }
-  console.log('Entered new Fragment: ' + document.querySelector('#convert_option').value);
+  console.log('Entered new Fragment: ' + document.querySelector('#update_fragment').value);
   //document.querySelector('#fragment').value = '';
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -233,20 +230,15 @@ export async function convertFragment(user, document) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export async function displayUserFragment(user, document) {
+export async function displayUserFragments(user, document) {
   // ${apiUrl}/v1/fragments/?expand=1 -> should be expand?
-  console.log(`${apiUrl}/v1/fragments`);
+  //console.log(`${apiUrl}/v1/fragments`);
   try {
-    const res = await fetch(
-      // ${apiUrl}/v1/fragments/?expand=1 -> should be expand?
-
-      `${apiUrl}/v1/fragments`,
-      {
-        headers: {
-          Authorization: `Bearer ${user.idToken}`,
-        },
-      }
-    );
+    const res = await fetch(`${apiUrl}/v1/fragments`, {
+      headers: {
+        Authorization: `Bearer ${user.idToken}`,
+      },
+    });
     if (!res.ok) {
       throw new Error(`${res.status} ${res.statusText}`);
     }
@@ -347,7 +339,7 @@ export async function displayUserFragmentMetaInfo(user, document) {
     let text = await res.json();
     console.log('CONTENT TYPE', res.headers.get('content-type'));
     console.log('Fragment:', text);
-    console.log('Fragment.ownerid:', text.fragment.ownerId);
+    //console.log('Fragment.ownerid:', text.fragment.ownerId);
 
     // let placeholder = document.querySelector('#tableBody');
     // let table = "";

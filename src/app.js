@@ -3,7 +3,7 @@ import { Auth, getUser } from './auth';
 import {
   getUserFragments,
   postUserFragments,
-  displayUserFragment,
+  displayUserFragments,
   displayUserFragmentsExpand,
   displayUserFragmentMetaInfo,
   deleteFragment,
@@ -60,19 +60,19 @@ async function init() {
 
   // Update fragment
   updateBtn.onclick = async () => {
-    console.log('updateBtn is clicked');
+    //console.log('updateBtn is clicked');
     await updateFragment(user, document);
   };
 
   // convert fragment media type
   convertBtn.onclick = async () => {
-    console.log('convertBtn is clicked');
+    //console.log('convertBtn is clicked');
     await convertFragment(user, document);
   };
 
-  // Display user fragments
+  // Display user fragment
   getFragmentBtn.onclick = async () => {
-    await displayUserFragment(user, document);
+    await displayUserFragments(user, document);
   };
 
   // Delete fragment
