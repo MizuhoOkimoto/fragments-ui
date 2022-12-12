@@ -1,6 +1,16 @@
 import { Auth, getUser } from './auth';
 
-import { getUserFragments, postUserFragments, displayUserFragment, displayUserFragmentsExpand, displayUserFragmentMetaInfo } from './api';
+import {
+  getUserFragments,
+  postUserFragments,
+  displayUserFragment,
+  displayUserFragmentsExpand,
+  displayUserFragmentMetaInfo,
+  deleteFragment,
+  updateFragment,
+  handleFragmentFile,
+  convertFragment,
+} from './api';
 
 async function init() {
   // Get our UI elements
@@ -11,6 +21,9 @@ async function init() {
   const getFragmentBtn = document.querySelector('#get');
   const getExpandFragmensBtn = document.querySelector('#expand');
   const getMetaInfoFragmenBtn = document.querySelector('#metainfo');
+  const deleteBtn = document.querySelector('#delete');
+  const updateBtn = document.querySelector('#update');
+  const convertBtn = document.querySelector('#convertbtn');
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -23,27 +36,48 @@ async function init() {
     // https://docs.amplify.aws/lib/auth/emailpassword/q/platform/js/#sign-out
     Auth.signOut();
   };
-  
-    // Get user fragments(Expand)
-    getMetaInfoFragmenBtn.onclick = async () => {
-      console.log('here');
-      await displayUserFragmentMetaInfo(user, document);
-    };
 
-    //Get Metadata Info
-    getExpandFragmensBtn.onclick = async () => {
-      //console.log('here');
-      await displayUserFragmentsExpand(user, document);
-    };
-  
-    // Get user fragments
-    postFragmentBtn.onclick = async () => {
-      //console.log('here');
-      await postUserFragments(user, document);
-    };
-  
+  // Get user fragments(Expand)
+  getMetaInfoFragmenBtn.onclick = async () => {
+    await displayUserFragmentMetaInfo(user, document);
+  };
+
+  //Get Metadata Info
+  getExpandFragmensBtn.onclick = async () => {
+    await displayUserFragmentsExpand(user, document);
+  };
+
+  // Get user fragments
+  postFragmentBtn.onclick = async () => {
+    await postUserFragments(user, document);
+  };
+
+  // Upload image - Reference: https://patrickbrosset.com/articles/2021-10-22-handling-files-on-the-web/
+  const handleFile = async (event) => {
+    await handleFragmentFile(event, user);
+  };
+  document.querySelector('#file').addEventListener('change', handleFile);
+
+  // Update fragment
+  updateBtn.onclick = async () => {
+    console.log('updateBtn is clicked');
+    await updateFragment(user, document);
+  };
+
+  // convert fragment media type
+  convertBtn.onclick = async () => {
+    console.log('convertBtn is clicked');
+    await convertFragment(user, document);
+  };
+
+  // Display user fragments
   getFragmentBtn.onclick = async () => {
     await displayUserFragment(user, document);
+  };
+
+  // Delete fragment
+  deleteBtn.onclick = async () => {
+    await deleteFragment(user, document);
   };
 
   // See if we're signed in (i.e., we'll have a `user` object)

@@ -55,6 +55,8 @@ COPY ./src /app/src
 # Serve the app
 FROM nginx:1.22.0@sha256:f0d28f2047853cbc10732d6eaa1b57f1f4db9b017679b9fd7966b6a2f9ccc2d1 AS serve
 
+#ARG NODE_VERSION=16
+
 # Set up node.js
 # https://github.com/nodesource/distributions/blob/master/README.md
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \

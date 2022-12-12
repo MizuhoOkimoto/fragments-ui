@@ -1,29 +1,74 @@
 .name {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
-.content {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+/* .content {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
-.enter_message{
-    margin-bottom: 5px;
-    font-size: 1.5rem;
+.enter_message {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
-.enter_message_btn{
-    margin-bottom: 18px;
+.enter_message_btn {
+  margin-bottom: 18px;
 }
 .enter_id {
-    margin-bottom: 18px;
-    font-size: 1.5rem;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
 }
 
 .convert_type {
-    margin-bottom: 5px;
-    font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
 .convert_btn {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.upload {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+} */
+
+.title_create {
+    font-size: 1.5rem;
+}
+.title_manage {
+    font-size: 1.5rem;
+}
+
+.title_update {
+  font-size: 1.5rem;
+}
+
+.title_convert {
+  font-size: 1.5rem;
+}
+
+.create_fragment_section {
+  background-color: blanchedalmond;
+  padding: 20px;
+}
+
+.manage_fragment_section {
+  background-color: rgb(205, 218, 255);
+  padding: 20px;
+}
+
+p {
+  padding: 20px;
+  margin-bottom: 0px;
+}
+
+.update_fragment_section {
+  background-color: rgb(221, 255, 205);
+  padding: 20px;
+}
+
+.convert_fragment_section {
+  background-color: rgb(247, 205, 255);
+  padding: 20px;
 }
